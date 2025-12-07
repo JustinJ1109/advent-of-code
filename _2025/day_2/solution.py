@@ -4,65 +4,59 @@
 def solve_1(solution_input):
     solution_input = solution_input[0].split(",")
     
+    answer = 0
     for id_range in solution_input:
         low, high = id_range.split("-")
-        low_n_digits = len(low) - 1
-        high_n_digits = len(high) - 1
 
-        answer = 0
 
-        counter = low
-        while counter <= high:
-            break
+        if len(low) % 2 == 1:
+            low = str(10 ** (len(low)))
+        if int(low) > (int_high := int(high)):
+            continue
 
+        done = False
+        while (int_low := int(low)) <= int_high and not done:
+            current=low[:len(low) // 2]
+            for i in range(int(current), 10 ** len(current)):
+                current_invalid = int(str(i) + str(i))
+                if current_invalid >= int_low and current_invalid <= int_high:
+                    answer += current_invalid
+                if current_invalid >= int_high:
+                    done = True
+                    break
+            else:
+                low = str(10 ** len(low))
+                if len(low) % 2 == 1:
+                    low = str(int(low) * 10)
+    return answer
+
+
+def solve_2(solution_input):
+    solution_input = solution_input[0].split(",")
     
-
-11
-22
-33
-44
-55
-66
-77
-88
-99
-1010
-1111
-1212
-1313
-1414
-1515
-1616
-1717
-1818
-1919
-2020
-2121
-2222
-2323
-...
-9999
-100100
-101101
-102102
-103103
-...
-111111
-...
-200200
-201201
-202202
-203203
-212212
-222222
-232232
-242242
-301301
-302302
-303303
-...
-333333
+    answer = 0
+    for id_range in solution_input:
+        low, high = id_range.split("-")
 
 
-# def solve_2(solution_input):
-#     ...
+        if len(low) % 2 == 1:
+            low = str(10 ** (len(low)))
+        if int(low) > (int_high := int(high)):
+            continue
+
+        done = False
+        while (int_low := int(low)) <= int_high and not done:
+            current=low[:len(low) // 2]
+            for i in range(int(current), 10 ** len(current)):
+                current_invalid = int(str(i) + str(i))
+                if current_invalid >= int_low and current_invalid <= int_high:
+                    answer += current_invalid
+                if current_invalid >= int_high:
+                    done = True
+                    break
+            else:
+                low = str(10 ** len(low))
+                if len(low) % 2 == 1:
+                    low = str(int(low) * 10)
+
+    return answer

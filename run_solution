@@ -107,11 +107,11 @@ if __name__ == "__main__":
 
             solution = solution_func(solution_input)
             correct = expected_solution is not None and solution == expected_solution
-            print(f"{'✅' if correct else ''} Part {part} Solution:\n{solution}\n")
+            print(f"{'✅' if correct else '❌' if expected_solution is not None else ''} Part {part} Solution:\n{solution}")
 
             if expected_solution is not None:
                 if not correct:
-                    print(f"❌ Part {part} Solution is wrong! Got {solution}, expected {expected_solution}\n")
+                    print(f"(Expected {expected_solution})\n")
     else:
         for part in (1,2):
             try:
