@@ -1,5 +1,5 @@
 # advent-of-code
-
+_note, some days for 2024 are unfinished and are not fully transferred over to work with the run script. results may be wrong._
 ## Usage
 
 The `run_solution` script is the entry point to run any of the available completed days for the [Advent of Code](https://adventofcode.com) mini-projects. You can specify the `--year` and `--day` to specify a particular solver and then provide input to run against via pipe. Alternatively, you can specify a `--test-case` to use a pre-existing input/answer map. This looks in the respective `./_<year>/day_<day>/tests/case_<test-case>/` directory for an `input.txt` as well as any optionally provided answer keys for part `1.out` or part `2.out`.  
